@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPhone Home Screen</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f5;
+            overflow: hidden;
+        }
+        .screen {
+            width: 375px;
+            height: 667px;
+            margin: 50px auto;
+            border: 16px solid black;
+            border-radius: 36px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            background-color: white;
+            position: relative;
+            animation: moveScreen 5s infinite alternate;
+        }
+        .status-bar {
+            height: 20px;
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            padding: 20px;
+        }
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ccc;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #333;
+            position: relative;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+        }
+        @keyframes moveScreen {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="screen">
+        <div class="status-bar" id="status-bar"></div>
+        <script>
+            function updateTime() {
+            const now = new Date();
+            const hours = String(now.getUTCHours()).padStart(2, '0');
+            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+            document.getElementById('status-bar').textContent = `${hours}:${minutes}`;
+            }
+            setInterval(updateTime, 1000);
+            updateTime();
+        </script>
+        <div class="app-grid">
+            <div class="app-icon"><img src="icons/phone.png" alt="Phone"></div>
+            <div class="app-icon"><img src="icons/messages.png" alt="Messages"></div>
+            <div class="app-icon"><img src="icons/mail.png" alt="Mail"></div>
+            <div class="app-icon"><img src="icons/safari.png" alt="Safari"></div>
+            <div class="app-icon"><img src="icons/music.png" alt="Music"></div>
+            <div class="app-icon"><img src="icons/maps.png" alt="Maps"></div>
+            <div class="app-icon"><img src="icons/weather.png" alt="Weather"></div>
+            <div class="app-icon"><img src="icons/photos.png" alt="Photos"></div>
+            <div class="app-icon"><img src="icons/camera.png" alt="Camera"></div>
+            <div class="app-icon"><img src="icons/clock.png" alt="Clock"></div>
+            <div class="app-icon"><img src="icons/calculator.png" alt="Calculator"></div>
+            <div class="app-icon"><img src="icons/settings.png" alt="Settings"></div>
+            <div class="app-icon"><img src="icons/notes.png" alt="Notes"></div>
+            <div class="app-icon"><img src="icons/reminders.png" alt="Reminders"></div>
+            <div class="app-icon"><img src="icons/stocks.png" alt="Stocks"></div>
+            <div class="app-icon"><img src="icons/news.png" alt="News"></div>
+            <div class="app-icon"><img src="icons/itunes_store.png" alt="iTunes Store"></div>
+            <div class="app-icon"><img src="icons/app_store.png" alt="App Store"></div>
+            <div class="app-icon"><img src="icons/books.png" alt="Books"></div>
+            <div class="app-icon"><img src="icons/health.png" alt="Health"></div>
+            <div class="app-icon"><img src="icons/wallet.png" alt="Wallet"></div>
+            <div class="app-icon"><img src="icons/files.png" alt="Files"></div>
+            <div class="app-icon"><img src="icons/find_my.png" alt="Find My"></div>
+            <div class="app-icon"><img src="icons/shortcuts.png" alt="Shortcuts"></div>
+            <div class="app-icon"><img src="icons/contacts.png" alt="Contacts"></div>
+            <div class="app-icon"><img src="icons/watch.png" alt="Watch"></div>
+            <div class="app-icon"><img src="icons/tv.png" alt="TV"></div>
+            <div class="app-icon"><img src="icons/home.png" alt="Home"></div>
+            <div class="app-icon"><img src="icons/translate.png" alt="Translate"></div>
+            <div class="app-icon"><img src="icons/tips.png" alt="Tips"></div>
+            <div class="app-icon"><img src="icons/voice_memos.png" alt="Voice Memos"></div>
+            <div class="app-icon"><img src="icons/compass.png" alt="Compass"></div>
+            <div class="app-icon"><img src="icons/measure.png" alt="Measure"></div>
+            <div class="app-icon"><img src="icons/podcasts.png" alt="Podcasts"></div>
+            <div class="app-icon"><img src="icons/find_friends.png" alt="Find Friends"></div>
+            <div class="app-icon"><img src="icons/fitness.png" alt="Fitness"></div>
+        </div>
+    </div>
+</body>
+</html>

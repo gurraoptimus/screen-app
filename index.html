@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Boot Screen</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: rgb(94, 94, 94);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        .apple-logo img {
+            width: 100px;
+            height: 100px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .progress-bar {
+            width: 50%;
+            height: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        .progress {
+            width: 0;
+            height: 100%;
+            background-color: white;
+            border-radius: 5px;
+            animation: load 5s linear forwards;
+        }
+        @keyframes load {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="apple-logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple Logo">
+    </div>
+    <div class="progress-bar">
+        <div class="progress"></div>
+    </div>
+    <script>
+        setTimeout(function() {
+            window.location.href = "home.html";
+        }, 5000); // Redirect after 5 seconds
+    </script>
+</body>
+</html>
