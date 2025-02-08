@@ -20,7 +20,6 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
             background-color: white;
             position: relative;
-            animation: moveScreen 5s infinite alternate;
         }
         .status-bar {
             height: 20px;
@@ -53,10 +52,6 @@
             height: 100%;
             border-radius: 15px;
         }
-        @keyframes moveScreen {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-20px); }
-        }
     </style>
 </head>
 <body>
@@ -64,10 +59,10 @@
         <div class="status-bar" id="status-bar"></div>
         <script>
             function updateTime() {
-            const now = new Date();
-            const hours = String(now.getUTCHours()).padStart(2, '0');
-            const minutes = String(now.getUTCMinutes()).padStart(2, '0');
-            document.getElementById('status-bar').textContent = `${hours}:${minutes}`;
+                const now = new Date();
+                const hours = String(now.getUTCHours()).padStart(2, '0');
+                const minutes = String(now.getUTCMinutes()).padStart(2, '0');
+                document.getElementById('status-bar').textContent = `${hours}:${minutes}`;
             }
             setInterval(updateTime, 1000);
             updateTime();
