@@ -30,6 +30,15 @@
                 drop-shadow(0 0 32px #fff)
                 drop-shadow(0 0 64px #fff2)
                 drop-shadow(0 0 8px #fff8);
+            transition: filter 0.5s, opacity 0.5s;
+        }
+        .sparkle {
+            filter:
+                drop-shadow(0 0 32px #fff)
+                drop-shadow(0 0 64px #fff)
+                drop-shadow(0 0 24px #fff)
+                brightness(1.5);
+            opacity: 1 !important;
         }
         @keyframes floatLogo {
             0% { transform: translateY(0); }
@@ -44,12 +53,40 @@
 </head>
 <body>
     <div class="center-container">
-        <div class="apple-logo">
-            <svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-label="Apple logo">
-                <path fill="white" d="M203.1 132.6c-1.2-24.2 19.9-35.9 20.8-36.4-11.4-16.7-29.1-19-35.4-19.2-15-1.5-29.3 8.7-36.9 8.7-7.6 0-19.6-8.5-32.1-8.3-16.5.2-31.7 9.5-40.1 24.1-17.1 29.1-4.3 72.2 12.2 95.9 8.1 11.7 17.7 25 30.2 24.5 12-0.5 16.5-7.9 30.9-7.9 14.4 0 18.4 7.9 30.9 7.7 12.8-.2 20.7-11.9 28.4-23.6 9-13.2 12.7-26.1 12.8-26.8-.3-.1-24.9-9.6-25.2-38.9z"/>
-                <path fill="white" d="M170.1 44.6c5.7-6.9 9.6-16.5 8.4-26.1-8.1.3-17.9 5.5-23.7 12.3-5.1 5.9-9.6 15.3-7.9 24.5 9.2.7 17.7-4.6 23.2-10.7z"/>
+        <div class="apple-logo" id="appleLogo">
+            <svg id="appleSVG" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-label="Apple logo">
+                <path id="appleMain" fill="white" d="M203.1 132.6c-1.2-24.2 19.9-35.9 20.8-36.4-11.4-16.7-29.1-19-35.4-19.2-15-1.5-29.3 8.7-36.9 8.7-7.6 0-19.6-8.5-32.1-8.3-16.5.2-31.7 9.5-40.1 24.1-17.1 29.1-4.3 72.2 12.2 95.9 8.1 11.7 17.7 25 30.2 24.5 12-0.5 16.5-7.9 30.9-7.9 14.4 0 18.4 7.9 30.9 7.7 12.8-.2 20.7-11.9 28.4-23.6 9-13.2 12.7-26.1 12.8-26.8-.3-.1-24.9-9.6-25.2-38.9z"/>
+                <path id="appleLeaf" fill="white" d="M170.1 44.6c5.7-6.9 9.6-16.5 8.4-26.1-8.1.3-17.9 5.5-23.7 12.3-5.1 5.9-9.6 15.3-7.9 24.5 9.2.7 17.7-4.6 23.2-10.7z"/>
             </svg>
         </div>
     </div>
+    <script>
+    // Secret color shift animation
+    const appleMain = document.getElementById('appleMain');
+    const appleLeaf = document.getElementById('appleLeaf');
+    let colorPhase = 0;
+    function colorShift() {
+        colorPhase += 0.02;
+        // Silver gradient effect
+        const silver = `rgb(${220 + 20 * Math.sin(colorPhase)},${220 + 20 * Math.cos(colorPhase)},${220 + 10 * Math.sin(colorPhase * 2)})`;
+        appleMain.setAttribute('fill', silver);
+        appleLeaf.setAttribute('fill', silver);
+        requestAnimationFrame(colorShift);
+    }
+    colorShift();
+
+    // Secret sparkle animation
+    function sparkle() {
+        const logo = document.getElementById('appleLogo');
+        logo.classList.add('sparkle');
+        setTimeout(() => logo.classList.remove('sparkle'), 600);
+    }
+    // Randomly sparkle every 10-30 seconds
+    function randomSparkle() {
+        sparkle();
+        setTimeout(randomSparkle, Math.random() * 20000 + 10000);
+    }
+    setTimeout(randomSparkle, Math.random() * 20000 + 10000);
+    </script>
 </body>
 </html>
