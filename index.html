@@ -8,24 +8,26 @@
         body {
             margin: 0;
             padding: 0;
+            width: 100vw;
+            height: 100vh;
             overflow: hidden;
-            background: #000;
+            background: #000000;
         }
         .center-container {
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
         .apple-logo {
-            width: 160px;
-            height: 160px;
+            width: 200px;
+            height: 200px;
             opacity: 0;
-            animation: fadeIn 2s ease-in-out forwards;
-            filter: drop-shadow(0 0 40px #fff8);
+            animation: fadeIn 2s cubic-bezier(.4,0,.2,1) forwards;
+            filter:
+                drop-shadow(0 0 32px #fff)
+                drop-shadow(0 0 64px #fff2)
+                drop-shadow(0 0 8px #fff8);
         }
         @keyframes fadeIn {
             0% { opacity: 0; }
